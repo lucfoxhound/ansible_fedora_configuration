@@ -1,2 +1,2 @@
-# ansible_fedora_configuration
+# configuration
 My personal ansible playbooks to set up my fedorat desktop
