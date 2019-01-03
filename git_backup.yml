@@ -1,0 +1,15 @@
+---
+- hosts: localhost
+  gather_facts: no
+  name: GITHUB backups for local work
+  tasks:
+  - name: copy sources from github
+    git: 
+      repo: "{{ item }}"
+      dest: ~/src/snippets/fedora-ansible
+      force: yes
+    loop:
+      - https://github.com/fabaff/fedora-ansible
+      - https://github.com/pgporada/ansible-role-vim.git
+      - https://gitlab.com/jsherman82/ansible_article.git
+      - 
