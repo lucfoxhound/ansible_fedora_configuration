@@ -6,17 +6,20 @@
   - name: copy sources from github
     git: 
       repo: "{{ item }}"
-      dest: ~/src/snippets/fedora-ansible
-      force: yes
+      dest: "~/src/snippets/{{ item | basename }}"
+      recursive: yes
     loop:
       - https://github.com/fabaff/fedora-ansible
-      - https://github.com/pgporada/ansible-role-vim.git
-      - https://gitlab.com/jsherman82/ansible_article.git
-      - https://github.com/j1mc/ansible-fedora-workstation-setup.git
-      - https://github.com/docent-net/fedora-desktop-ansible.git
-      - https://github.com/docent-net/systemd-workshop.git
-      - https://github.com/henrysher/fedora-infra-ansible.git
-      - https://github.com/bertvv/ansible-role-fedora.git
-      - https://github.com/geerlingguy/docker-fedora27-ansible.git
-      - https://github.com/geerlingguy/ansible-for-devops.git
-      - https://github.com/geerlingguy/ansible-vagrant-examples.git
+      - https://github.com/pgporada/ansible-role-vim
+      - https://gitlab.com/jsherman82/ansible_article
+      - https://github.com/j1mc/ansible-fedora-workstation-setup
+      - https://github.com/docent-net/fedora-desktop-ansible
+      - https://github.com/docent-net/fedora-desktop-ansible-roles
+      #- https://github.com/docent-net/systemd-workshop
+      - https://github.com/henrysher/fedora-infra-ansible
+      - https://github.com/bertvv/ansible-role-fedora
+      - https://github.com/geerlingguy/docker-fedora27-ansible
+      - https://github.com/geerlingguy/ansible-for-devops
+      - https://github.com/geerlingguy/ansible-vagrant-examples
+      - https://github.com/fedy/fedy
+      - https://github.com/Voronenko/ansible-developer_recipes
