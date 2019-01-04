@@ -1,0 +1,23 @@
+---
+- hosts: localhost
+  become: true
+  gather_facts: false
+  name: install Adobe Flash
+  tasks:
+  - name: add repository
+    dnf:
+      name: http://linuxdownload.adobe.com/adobe-release/adobe-release-x86_64-1.0-1.noarch.rpm
+      state: present
+  - name: import key
+    rpm_key:
+      state: present
+      key: /etc/pki/rpm-gpg/RPM-GPG-KEY-adobe-linux
+  - name: install packages
+    dnf: 
+      name: "{{ rpm }}"
+      state: present
+    vars:
+      rpm:
+      - flash-plugin
+      - alsa-plugins-pulseaudio
+      - libcurl
