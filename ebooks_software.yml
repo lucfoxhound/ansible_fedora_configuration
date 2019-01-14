@@ -1,0 +1,15 @@
+---
+- hosts: localhost
+  become: true
+  gather_facts: false
+  name: install Ebooks utilities
+  tasks:
+  - name: install packages 
+    dnf: 
+      name: "{{ rpms }}"
+      state: present
+    vars:
+      rpms:
+      - fbreader
+      - calibre
+      - mcomix

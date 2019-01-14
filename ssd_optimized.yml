@@ -1,0 +1,15 @@
+---
+- hosts: localhost
+  become: true
+  gather_facts: false
+  name: SSD disk tuning
+  tasks:
+  - name: Make sure fstrim service is running
+    systemd:
+      name: fstrim
+      state: started
+      enabled: yes
+  - name: install hdparm
+    dnf: 
+      name: hdparm
+      state: present

@@ -1,0 +1,17 @@
+---
+- hosts: localhost
+  become: true
+  gather_facts: false
+  name: install Archive utilities
+  tasks:
+  - name: install packages 
+    dnf: 
+      name: "{{ rpm }}"
+      state: present
+    vars:
+      rpm:
+      - cabextract
+      - lzip
+      - p7zip
+      - p7zip-plugins
+      - unrar

@@ -1,0 +1,19 @@
+---
+- hosts: localhost
+  become: true
+  gather_facts: false
+  name: install Arnsible utilities
+  tasks:
+  - name: install packages 
+    dnf: 
+      name: "{{ rpms }}"
+      state: present
+    vars:
+      rpms:
+      - ansible-doc
+      - python3-ansible-lint
+      - python3-ansible-inventory-grapher
+      - python3-ansible-review
+      - standard-test-roles
+      - loopabull
+      - python3-molecule

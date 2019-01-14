@@ -1,0 +1,22 @@
+---
+- hosts: localhost
+  become: true
+  gather_facts: false
+  name: install Music software
+  tasks:
+  - name: install packages 
+    dnf: 
+      name: "{{ rpms }}"
+      state: present
+    vars:
+      rpms:
+      - cdparanoia
+      - audex
+      - cuetools
+      - shntool
+      - mac
+      - flac
+      - bchunk
+      - audacious
+      - wavpack
+      - lame
